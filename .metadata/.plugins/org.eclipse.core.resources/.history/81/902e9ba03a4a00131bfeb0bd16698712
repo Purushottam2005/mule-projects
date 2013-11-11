@@ -1,0 +1,8 @@
+package com.org;
+
+import javax.ws.rs.Path;
+
+@Path("/myrest")
+public class HelloWorldResource {
+
+}

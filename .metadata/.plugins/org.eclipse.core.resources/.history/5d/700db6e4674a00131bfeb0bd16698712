@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="Script">
+    <flow SubFlow="false" name="ScriptFlow1" entity-id="f001ceb5-8fd7-4bdd-80d5-945b3132316d">
+        <lane hadOnlyOneElement="false" index="0" isChoiceOtherwiseLane="false" entity-id="9ce9eba1-8782-4e09-a6b0-9c1599996d51">
+            <graphicalData x="0" y="0" width="0" height="0"/>
+            <endpoint direction="Inbound" message-exchange-pattern="RequestResponse" name="HTTP" type="http://www.mulesoft.org/schema/mule/https/endpoint" entity-id="4c8d3735-bcac-4e4a-996f-c8abf2afbe13">
+                <graphicalData x="19" y="169" width="68" height="67"/>
+                <properties>
+                    <property name="auxiliary;erased;mimeType" value="true"/>
+                    <property name="port" value="2121"/>
+                    <property name="contentType" value=""/>
+                    <property name="password" value=""/>
+                    <property name="exchange-pattern" value="one-way"/>
+                    <property name="tracking:enable-default-events" value="false"/>
+                    <property name="updated"/>
+                    <property name="auxiliary;erased;encoding" value="true"/>
+                    <property name="encoding" value=""/>
+                    <property name="path" value=""/>
+                    <property name="responseTransformer-refs" value=""/>
+                    <property name="responseTimeout" value="10000"/>
+                    <property name="mimeType" value=""/>
+                    <property name="auxiliary;erased;contentType" value="true"/>
+                    <property name="host" value="localhost"/>
+                    <property name="businessEventsLabel" value=""/>
+                    <property name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute" value="http://www.mulesoft.org/schema/mule/http/endpoint"/>
+                    <property name="keep-alive" value="false"/>
+                    <property name="disableTransportTransformer" value="false"/>
+                    <property name="ref" value=""/>
+                    <property name="transformer-refs" value=""/>
+                    <property name="httpLabel" value=""/>
+                    <property name="address" value=""/>
+                    <property name="user" value=""/>
+                    <property name="connector-ref" value=""/>
+                </properties>
+                <description></description>
+            </endpoint>
+            <pattern name="Logger" type="http://www.mulesoft.org/schema/mule/core/logger" entity-id="d35fe2b5-17de-477a-8ed9-de22abac8b02">
+                <graphicalData x="147" y="169" width="68" height="67"/>
+                <properties>
+                    <property name="message" value="#[payload]"/>
+                    <property name="category" value=""/>
+                    <property name="level" value="INFO"/>
+                    <property name="updated"/>
+                </properties>
+                <description></description>
+            </pattern>
+            <pattern name="Groovy" type="http://www.mulesoft.org/schema/mule/scripting/groovyComponent" entity-id="50f9310b-05e4-4336-834f-be9e51050f16">
+                <graphicalData x="0" y="0" width="0" height="0"/>
+                <properties>
+                    <property name="ref" value=""/>
+                    <property name="text" value="dirName = &quot;/Users/Reuter/tmp/pictures&quot;&#xA;new File(dirName).eachFile() { file -&gt; &#xA;&#x9;def newName = (file.getName() ~= /.jpg/).replaceFirst(&quot;infocom.jpg&quot;)&#xA;&#x9;File f = new File(dirName + &quot;/&quot; + newName) &#xA;&#x9;file.renameTo(f)&#xA;&#x9;println file.getName() + &quot;-&gt;&quot; + f.getName()&#xA;}"/>
+                    <property name="updated"/>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/core/refInterceptorStackType;23535931">
+                        <property name="ref" value=""/>
+                        <property name="isProcessed$$$$" value="true"/>
+                    </property-collection>
+                    <property-collection name="@http://www.mulesoft.org/schema/mule/scripting/script;32415856">
+                        <property name="text" value="dirName = &quot;/Users/Reuter/tmp/pictures&quot;&#xA;new File(dirName).eachFile() { file -&gt; &#xA;&#x9;def newName = (file.getName() ~= /.jpg/).replaceFirst(&quot;infocom.jpg&quot;)&#xA;&#x9;File f = new File(dirName + &quot;/&quot; + newName) &#xA;&#x9;file.renameTo(f)&#xA;&#x9;println file.getName() + &quot;-&gt;&quot; + f.getName()&#xA;}"/>
+                        <property name="isProcessed$$$$" value="true"/>
+                    </property-collection>
+                </properties>
+                <description></description>
+            </pattern>
+        </lane>
+    </flow>
+    <description></description>
+</mule-configuration>

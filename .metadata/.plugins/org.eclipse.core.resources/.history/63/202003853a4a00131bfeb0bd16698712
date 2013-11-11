@@ -1,0 +1,6 @@
+package com.org;
+
+@Path("/myrest")
+public class HelloWorldResource {
+
+}
